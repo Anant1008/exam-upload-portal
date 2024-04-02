@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form</title>
+        <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+        <style>
+            body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: bisque;
+        }
+
+        #main-div {
+            border: 1px solid black;
+            background-color: white;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+        }
+
+        .form-div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .form-item-div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            /* margin: 20px; */
+            width:100%;
+            text-align: center;
+        }
+
+        .form-item-inner-div {
+            margin: 20px;
+            width: 100%;
+        }
+
+        select {
+            width: 200px;
+            height: 40px;
+            background-color: transparent;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            height: 30px;
+        }
+
+        #submit-btn {
+            width: 150px;
+            height: 50px;
+            border: none;
+            background-color: #59db59;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn-div {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .loader {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            z-index: 2;
+            left: 50%;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .loader::after,
+        .loader::before {
+            content: '';  
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #FF3D00;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .loader::before {
+            left: auto;
+            top: auto;
+            right: 0;
+            bottom: 0;
+        }
+
+        #message {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+            display: block;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        } 
+        </style>
+    </head>
+    <body>
+        <span class="loader" id="loader"></span>
+        <div id="main-div">
+            <form action="" method="post" enctype="multipart/form-data" id="form">
+                <div class="form-div">
+                    <div class="form-item-div">
+                        <div class="form-item-inner-div">
+                            <label for="subject">Subject<span style="color:red">*</span></label>
+                            <br>
+                            <select id="subject" name="subject">
+                                <option value="">--Select--</option>
+                                <option value="subject1">Subject 1</option>
+                                <option value="subject2">Subject 2</option>
+                                <option value="subject3">Subject 3</option>
+                            </select>
+                        </div>
+                        <div class="form-item-inner-div">
+                            <label for="exam">Exam<span style="color:red">*</span></label>
+                            <br>
+                            <select id="exam" name="exam">
+                                <option value="">--Select--</option>
+                                <option value="minor1">Minor 1</option>
+                                <option value="minor2">Minor 2</option>
+                                <option value="minor3">Minor 3</option>
+                                <option value="major">Major</option>
+                            </select>
+                        </div>
+                        <!-- <br><br> -->
+                    </div>
+                    <!-- <br><br> -->
+                    <div class="form-item-div">
+                        <div class="form-item-inner-div">
+                            <label for="year">Year<span style="color:red">*</span></label>
+                            <br>
+                            <select id="year" name="year">
+                                <option value="">--Select--</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                            </select>
+                        </div>
+                        <!-- <br><br> -->
+                        <div class="form-item-inner-div">
+                            <label for="course">Course<span style="color:red">*</span></label>
+                            <br>
+                            <select id="course" name="course">
+                                <option value="">--Select--</option>
+                                <option value="IMtech">IMtech</option>
+                                <option value="Mtech-AI">Mtech(AI)</option>
+                                <option value="Mtech-CS">Mtech(CS)</option>
+                                <option value="Mtech-IT">Mtech(IT)</option>
+                                <option value="MCA">MCA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <br><br> -->
+                    <div class="form-item-div">
+                        <div class="form-item-inner-div">
+                            <label for="sem">Semester<span style="color:red">*</span></label>
+                            <br>
+                            <select id="sem" name="sem">
+                                <option value="">--Select--</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                        <div class="form-item-inner-div">
+                            <label for="registration">Registration No<span style="color:red">*</span></label>
+                            <br>
+                            <input type="text" id="registration" name="registration">
+                        </div>
+                        <!-- <br><br> -->
+                    </div>
+                    <div class="form-item-div">
+                        <div class="form-item-inner-div">
+                            <label for="file">Choose a Zip Folder<span style="color:red">*</span></label>
+                            <br>
+                            <input type="file" id="file" name="file">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="submit-btn-div">
+                        <input type="submit" value="Submit" id="submit-btn">
+                        <br>
+                        <span id="message"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            form.addEventListener("submit", submitForm);
+
+            const loader = document.getElementById("loader");
+            loader.style.display = 'none';
+
+            const msg = document.getElementById("message");
+
+            function submitForm(e) {
+                e.preventDefault();
+                
+                const form = document.getElementById("form");
+                const exam = document.getElementById("exam");
+                const subject = document.getElementById("subject");
+                const year = document.getElementById("year");
+                const course = document.getElementById("course");
+                const sem = document.getElementById("sem");
+                const registration = document.getElementById("registration");
+                const files = document.getElementById("file");
+
+                const formData = new FormData();
+                formData.append("exam", exam.value);
+                formData.append("subject", subject.value);
+                formData.append("year", year.value);
+                formData.append("course", course.value);
+                formData.append("sem", sem.value);
+                formData.append("registration", registration.value);
+
+                console.log(files.files);
+                for(let i =0; i < files.files.length; i++) {
+                    formData.append("file", files.files[i]);
+                }
+
+                console.log(formData);
+
+                if (!validateForm(formData)) {
+                    msg.innerHTML = "All fields are required!";
+                    return;
+                }
+
+                loader.style.display = 'block';
+                fetch("http://localhost:3000/upload", {
+                    method: 'POST',
+                    body: formData
+                })
+                .then((res) => {
+                    loader.style.display = 'none';
+                    console.log(res)
+                    return res.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    msg.innerHTML = data ? data.msg : "";
+                    resetForm();
+                })
+                .catch((err) => {
+                    loader.style.display = 'none';
+                    console.log("Error occured", err);
+                    msg.innerHTML = "Error: " + err;
+                });
+            }
+
+            function validateForm(formData) {
+                //console.log(formData.get("exam"), formData["subject"], formData["year"], formData["course"], formData["sem"], formData["registration"], formData.get("file"));
+                if (!formData.get("exam") ||
+                    !formData.get("subject") ||
+                    !formData.get("year") ||
+                    !formData.get("course") ||
+                    !formData.get("sem") ||
+                    !formData.get("registration") ||
+                    !formData.get("file")
+                ) {
+                    return false;
+                }
+
+                return true;
+            }
+
+            function resetForm() {
+                document.getElementById("exam").value = "";
+                document.getElementById("subject").value = "";
+                document.getElementById("year").value = "";
+                document.getElementById("course").value = "";
+                document.getElementById("sem").value = "";
+                document.getElementById("registration").value = "";
+                document.getElementById("file").value = "";
+            }
+        </script>
+    </body>
+</html>
